@@ -13,8 +13,13 @@ import paquete04.AutomovilDiesel;
  */
 public class Ejecutor {
     public static void main(String[] args) {
-        Automovil automovil = new Automovil();
-        AutomovilGasolina automovilG = new AutomovilGasolina();
-        AutomovilDiesel automovilD = new AutomovilDiesel();
+        AutomovilGasolina auto1 = new AutomovilGasolina("Kevin", "LGB-711", 15, 3);
+        auto1.establecerIva();
+        auto1.calcularValorCancelar();
+        System.out.println(auto1);
+        AutomovilDiesel auto2 = new AutomovilDiesel("Pablo","HRD-431",10,2.10);
+        auto2.establecerDescuentoLitro(5);
+        auto2.calcularValorCancelar();
+        System.out.println(auto2);
     }
 }

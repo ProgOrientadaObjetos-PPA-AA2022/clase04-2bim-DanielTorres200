@@ -13,7 +13,7 @@ public abstract class Automovil {
 
     protected String nombrePropietario;
     protected String placa;
-    protected int valorCancelar;
+    protected double valorCancelar;
 
     public void establecerNombrePropietario(String nomP) {
         nombrePropietario = nomP;
@@ -22,7 +22,6 @@ public abstract class Automovil {
     public void establecerPlaca(String plac) {
         placa = plac;
     }
-
     
     public abstract void calcularValorCancelar();
 
@@ -35,19 +34,16 @@ public abstract class Automovil {
         return placa;
     }
 
-    public int obtenerValorCancelar() {
+    public double obtenerValorCancelar() {
         return valorCancelar;
     }
     
     @Override
     public String toString() {
-        String cadena = String.format("Automovil\n"
-                        + "Nombre del propietario: %s\n"
-                        + "Placa: %s\n"
-                        + "Valor total a cancelar: %d\n",
+        String cadena = String.format("Nombre del propietario: %s\n"
+                        + "Placa: %s\n",
                   obtenerNombrePropietario(),
-                  obtenerPlaca(),
-                  obtenerValorCancelar());
+                  obtenerPlaca());
         return cadena;
     }  
 }

@@ -5,21 +5,23 @@
  */
 package paquete04;
 
+import paquete02.Automovil;
+
 /**
  *
  * @author reroes
  */
-public class AutomovilDiesel {
+public class AutomovilDiesel extends Automovil {
+
     double numeroLitrosD;
     double costoLitro;
     double descuentoLitro;
-    double valorTotalD;
-    
-    public AutomovilDiesel(double n, double cd, double i, double valorTD){
-        numeroLitrosD = n;
-        costoLitro = cd;
-        descuentoLitro = i;
-        valorTotalD = valorTD;
+
+    public AutomovilDiesel(String n, String p, double nl, double cl) {
+        nombrePropietario = n;
+        placa = p;
+        numeroLitrosD = nl;
+        costoLitro = cl;
     }
 
     public void establecerNumeroLitros(int numeroL) {
@@ -31,15 +33,14 @@ public class AutomovilDiesel {
     }
 
     public void establecerDescuentoLitro(double descuentoL) {
-        descuentoLitro = descuentoL;
+        descuentoLitro = ((numeroLitrosD * descuentoL) / 100);
     }
 
-    public void calcularValorTotalDiesel() {
-        valorTotalD = costoLitro - descuentoLitro;
+    @Override
+    public void calcularValorCancelar() {
+        valorCancelar = costoLitro *  descuentoLitro;
     }
 
-    
-    
     public double obtenerNumeroLitros() {
         return numeroLitrosD;
     }
@@ -53,21 +54,22 @@ public class AutomovilDiesel {
     }
 
     public double obtenerValorTotalDiesel() {
-        return valorTotalD;
+        return valorCancelar;
     }
-    
-     @Override
+
+    @Override
     public String toString() {
         String cadena = String.format("Vehiculo a Diesel\n"
-                        + "Numero litros: %s\n"
-                        + "Costo litro: %s\n"
-                        + "descuentoLitro: %s\n"
-                        + "Valor total a pagar D: %d\n",
-                  obtenerNumeroLitros(),
-                  obtenerCostoLitros(),
-                  obtenerDescuentoLitro(),
-                  obtenerValorTotalDiesel());
+                + "%s\n"
+                + "Numero Maximo de Litros: %.2f\n"
+                + "Costo Maximo de Litros: %.2f\n"
+                + "Descuento en Litros: %.2f\n"
+                + "Valor Total a Cancelar: %.2f\n",
+                super.toString(),
+                obtenerNumeroLitros(),
+                obtenerCostoLitros(),
+                obtenerDescuentoLitro(),
+                obtenerValorCancelar());
         return cadena;
-    }  
+    }
 }
-
